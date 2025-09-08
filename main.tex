@@ -131,108 +131,19 @@
 \begin{document}
 \fontfamily{cmr}\selectfont
 %----------HEADING-----------------
-
-{
-\begin{tabularx}{\linewidth}{L r} \\
-  	\textbf{\Large \name} & {\raisebox{0.0\height}{\footnotesize \faPhone}\ \phone}\\
-  Computer Science Student & \href{https://github.com/riadkabir45}{\raisebox{0.0\height}{\footnotesize \faGithub}\ {riadkabir45}} \\  
-  {Brac University} & \href{https://linkedin.com/in/mokaddimul-kabir}{\raisebox{0.0\height}{\footnotesize \faLinkedin}\ {mokaddimul-kabir}}
-\end{tabularx}
-}
-
+\input{header.lex}
 
 %-----------EDUCATION-----------
-\section{\textbf{Education}}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Brac University | Bachelor's Degree (Current)}{CGPA: 3.31 (Ongoing 99/124 credit)}
-      {Major: Computer Science}{Dhaka, Bangladesh}
-    \resumeSubheading
-      {Chuadanga Govt College | HSC (2020-2021)}{GPA: 5.00}
-      {Subject: Science}{Chuadanga, Bangladesh}
-    \resumeSubheading
-      {Victoria Jubilee Government High School | SSC (2018)}{GPA: 4.78}
-      {Subject: Science}{Chuadanga, Bangladesh}
-  \resumeSubHeadingListEnd
-  \vspace{-5.5mm}
+\input{education.tex}
+
 %-----------PROJECTS-----------------
-\section{\textbf{Personal Projects}}
-\resumeSubHeadingListStart
-    \resumeProject
-      {BytesBit | A Computer Retailer Shop}{Github: codesoverign}{Tech: React, Express, Jest, Docker, Tailwind CSS}{}
-      \resumeItemListStart
-        \item {An online Laptop, Desktop and accessories shop with advance filters and delivery management.}
-        \item {Gained experience in Docker containerization and Tailwind CSS.}
-        \item {Overcame challenges like how to configure docker compose into a development package using docker volume.}
-      \resumeItemListEnd
-    \vspace{-2mm}
-    \resumeProject
-      {Mank | A Tank Brawl Game}{Github: Mank}{Tech: Python, PyOpenGL}{}
-      \resumeItemListStart
-        \item {A game where user shoots down other tanks in an auto generated maze.}
-        \item {Implemented maze algorithm to generate efficient pseudo maze.}
-        \item {Learned how using different data structures increase performance for my poor maze drawing algorithm drastically, and handling collision based on object borders while maintaining greater than single pixel displacement.}
-      \resumeItemListEnd
-    \vspace{-2mm}
-    \resumeProject
-      {Ultimate Usis Match Finder | A Class Routine Generator}{Github: uumf-py}{Tech: Python, QT, Rest API}{}
-      \resumeItemListStart
-        \item {A class routine generator can filter routine based on given time or day or faculty or seat number with auto credential login.}
-        \item {Was able to perform advising in minutes whereas it took 30 minutes or to do it manually.}
-        \item {Automated login by observing browser api calls and simulating them via python session.}
-      \resumeItemListEnd
-    \vspace{-2mm}
-    \resumeProject
-      {RedChat | A Basic Encrypted Messaging System}{Github: redchat}{Tech: Django, WebSocket}{}
-      \resumeItemListStart
-        \item {An end to end encrypted chat system inspired by Jogajog during July Blackout.}
-        \item {Made performance improvement with websocket and asynchronous web deployment.}
-        \item {In attempt to make it decentralized system via webRTC.}
-      \resumeItemListEnd
-    \vspace{-2mm}
-    \resumeProject
-      {BracU Logger | Versity Wifi Logger}{Github: bracu-logger}{Tech: Gradle, Rest API, Java}{}
-      \resumeItemListStart
-        \item {An app to remember my login credentials and log into wifi with the push of a button.}
-        \item {Learned how android GUI structure is Different from web or QT structure.}
-      \resumeItemListEnd
-      
-  \resumeSubHeadingListEnd
-\vspace{-8.5mm}
-
-
+\input{projects.tex}
 
 %-----------EXPERIENCE-----------------
-\section{\textbf{Experience}}
-\begin{itemize}[leftmargin=*,labelsep=0.5em]
-  \item 439th at ICPC Regional Preliminary 2021
-  \item Linux usage since 2020
-  \item Doing Therap Javafest now
-\end{itemize}
-\vspace{-5.5mm}
-
-
-
-
-
-
+\input{experience.tex}
 
 %-----------Technical skills-----------------
-\section{\textbf{Technical Skills}}
-\begin{itemize}[leftmargin=0.05in, label={}]
-  \item \textbf{Programming Languages:} Python, C, C++, Java, JavaScript, PHP, SQL, Solidity
-  \item \textbf{Web:} HTML5, CSS3, Sass, Tailwind CSS, Bootstrap, React.js, Shadcn, REST API
-  \item \textbf{Frameworks/Libraries:} Spring, Django, Qt, Pandas, NumPy
-  \item \textbf{Tools:} Docker, Git, GitHub, Bash, Linux, Regex, Web3
-  \item \textbf{Other:} Quick learner, passionate coder, app/web/game development, automation
-\end{itemize}
-\vspace{-16pt}
-
-
-
-
-
-
+\input{skills.tex}
 
 % %-----------Achievements-----------------
 % \section{\textbf{Achievements}}
