@@ -22,23 +22,21 @@ jobs:
           sudo apt-get install -y texlive-full gh jq
 
       - name: List all branches
-        id: branches
         run: |
-          BRANCHES=$(gh api repos/${{ github.repository }}/branches | jq -r '.[].name')
-          echo "branches=$BRANCHES" >> $GITHUB_OUTPUT
+          gh api repos/${{ github.repository }}/branches | jq -r '.[].name' > branches.txt
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build PDFs for all branches
         run: |
           mkdir pdfs
-          for BRANCH in ${{ steps.branches.outputs.branches }}; do
+          while read BRANCH; do
             echo "Checking out $BRANCH"
             git fetch origin $BRANCH
             git checkout $BRANCH
             latexmk -pdf main.tex
             cp main.pdf "pdfs/${BRANCH}.pdf"
-          done
+          done < branches.txt
 
       - name: Create Release and Upload PDFs
         uses: softprops/action-gh-release@v2
