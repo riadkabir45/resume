@@ -13,29 +13,37 @@ on:
         type: string
 
 jobs:
-  build:
+  build-all-branches:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up TeX Live
-        run: sudo apt-get update && sudo apt-get install -y texlive-full
-
-      - name: Compile LaTeX to PDF
+      - name: Set up prerequisites
         run: |
-          latexmk -pdf main.tex
+          sudo apt-get update
+          sudo apt-get install -y texlive-full gh jq
 
-      - name: Upload PDF as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: resume-pdf
-          path: main.pdf
+      - name: List all branches
+        id: branches
+        run: |
+          BRANCHES=$(gh api repos/${{ github.repository }}/branches | jq -r '.[].name')
+          echo "branches=$BRANCHES" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Release
+      - name: Build PDFs for all branches
+        run: |
+          mkdir pdfs
+          for BRANCH in ${{ steps.branches.outputs.branches }}; do
+            echo "Checking out $BRANCH"
+            git fetch origin $BRANCH
+            git checkout $BRANCH
+            latexmk -pdf main.tex
+            cp main.pdf "pdfs/${BRANCH}.pdf"
+          done
+
+      - name: Create Release and Upload PDFs
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.event.inputs.tag }}
-          files: main.pdf
+          files: pdfs/*.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
