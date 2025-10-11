@@ -1,0 +1,16 @@
+# --- Personal Information ---
+user:
+  name: John Doe
+  email: john.doe@example.com
+  github: https://github.com/johndoe
+
+# --- Project List (A list/sequence of objects) ---
+projects:
+  - name: Data Visualizer Tool
+    description: An interactive dashboard for sensor data visualization.
+    challenges: Optimizing rendering performance for large datasets.
+    techs: Python, D3.js, Flask
+  - name: E-commerce Platform Redesign
+    description: Full redesign and re-platforming of an existing B2B solution.
+    challenges: Implementing a modular payment gateway.
+    techs: PHP/Laravel, Vue.js, MySQL
